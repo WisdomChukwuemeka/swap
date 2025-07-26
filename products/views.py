@@ -80,7 +80,7 @@ class BookView(generics.ListCreateAPIView):
             
 class SkillNestedView(generics.ListAPIView):
     serializer_class = SkillsNestedSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     pagination_class = CustomCursorPagination
 
     def get_queryset(self):

@@ -33,6 +33,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://swapskill-pik3.onrender.com",
+    "http://localhost:5173",
 ]
 
 STORAGES = {
