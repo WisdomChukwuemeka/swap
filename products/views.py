@@ -43,8 +43,7 @@ class SkillView(generics.ListCreateAPIView):
     pagination_class = CustomCursorPagination  # ✅ add this
 
     def get_queryset(self):
-        return Skill.objects.filter(user=self.request.user).order_by('-id')
-
+        return Category.objects.filter(user=self.request.user).order_by('-id')
     
     def post(self, request, *args, **kwargs):
         if Skill.objects.filter(user=request.user).exists():
@@ -83,8 +82,6 @@ class SkillNestedView(generics.ListAPIView):
     serializer_class = SkillsNestedSerializer
     permission_classes = [IsAuthenticated]
     pagination_class = CustomCursorPagination
-    
-    
 
     def get_queryset(self):
         search = self.request.query_params.get('search', None)

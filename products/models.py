@@ -28,10 +28,10 @@ class Category(models.Model):
 class Skill(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    profile_image = models.ImageField(upload_to="images/skill_image", blank=False, null=False)
+    profile_image = models.ImageField(upload_to="images/skill/skill_image/", blank=False, null=False)
     full_name = models.CharField(max_length=40)
     bio = models.CharField(max_length=1000, blank=False, null=False)
-    certificate = models.ImageField(upload_to="images/certificate", blank=True, null=True)
+    certificate = models.ImageField(upload_to="images/skill/certificate/", blank=True, null=True)
     experience = models.CharField(max_length=40)
     skills = models.JSONField(default=list)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -48,7 +48,7 @@ class Video(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name='videos')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    video_file = models.FileField(upload_to='videos/', blank=True, null=True)
+    video_file = models.FileField(upload_to='videos/skills/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)   
 
     def __str__(self):

@@ -87,18 +87,19 @@ class ProfileView(generics.ListCreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [AllowAny]
-
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
+    parser_classes = [MultiPartParser, FormParser]
+        
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         profile = serializer.save()
         return Response({
-            'profile': serializer.data,
-            'message': 'Uploaded successfully',
+            "skill": serializer(profile).data,
+            "message": "Uploaded successfully"
         }, status=status.HTTP_201_CREATED)
         
 class GetProfileView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     serializer_class = ProfileSerializer
 
     def get(self, request, *args, **kwargs):
