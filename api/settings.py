@@ -157,3 +157,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+# Try to load deployment overrides if they exist
+try:
+    from .deployment_settings import *
+except ImportError:
+    pass
