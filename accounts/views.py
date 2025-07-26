@@ -13,6 +13,7 @@ from django.conf import settings
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegistrationSerializer
+    permission_classes = [AllowAny]
     
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -30,6 +31,7 @@ class RegisterView(generics.CreateAPIView):
         
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
+    permission_classes = [AllowAny]
     
     def post(self, request, *args, **kwargs):
         serializer = LoginSerializer(data=request.data)
