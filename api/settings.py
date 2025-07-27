@@ -87,7 +87,13 @@ CORS_ALLOW_METHODS = (
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://swapskill-y5rb.onrender.com"
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://swapskill-y5rb.onrender.com",
+]
+
 
 AUTH_USER_MODEL = 'accounts.User'
 
