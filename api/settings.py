@@ -30,7 +30,8 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = []
+
+
 
 
 # Application definition
@@ -87,15 +88,15 @@ CORS_ALLOW_METHODS = (
 
 
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://swapskill-99mj.onrender.com"
-#     "http://localhost:5173",
-#     "http://127.0.0.1:5173",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://swapskill-wdms.onrender.com"
+]
 
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://swapskill-99mj.onrender.com"
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://swapskill-wdms.onrender.com"
+]
 
 
 AUTH_USER_MODEL = 'accounts.User'
