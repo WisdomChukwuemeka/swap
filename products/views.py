@@ -98,7 +98,13 @@ class SkillNestedView(generics.ListAPIView):
             return qs.order_by('-id')
         return Skill.objects.all().order_by('-id')
             
-        
+class AllSkillView(generics.RetrieveAPIView):
+    serializer_class = SkillsNestedSerializer
+    permission_classes = [IsAuthenticated]
+    lookup_field = 'id'
+
+    def get_queryset(self):
+        return Skill.objects.all() 
     
 class UpdateSkillView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UpdateSkillSerializer
