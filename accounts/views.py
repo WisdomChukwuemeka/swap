@@ -86,7 +86,7 @@ class UserListDeleteView(APIView):
 class ProfileView(generics.ListCreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser, FormParser]
         
     def post(self, request, *args, **kwargs):
