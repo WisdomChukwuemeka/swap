@@ -31,10 +31,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://swapskill-99mj.onrender.com",
-#     "http://localhost:5173",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "https://swapskill-wdms.onrender.com",
+]
 
 STORAGES = {
     'default': {

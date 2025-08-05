@@ -58,6 +58,9 @@ REST_FRAMEWORK = {
   'DEFAULT_PERMISSION_CLASSES': [
     'rest_framework.permissions.IsAuthenticated',
   ],
+  'DEFAULT_PERMISSION_CLASSES': [
+    'rest_framework.permissions.AllowAny',
+  ],
 }
 
 
@@ -97,6 +100,8 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     "https://swapskill-wdms.onrender.com"
 ]
+
+CORS_ALLOW_CREDENTIALS = False
 
 
 AUTH_USER_MODEL = 'accounts.User'
